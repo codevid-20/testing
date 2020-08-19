@@ -23,7 +23,14 @@
 
 class FizzBuzz
   def output(number)
-    return 1
+    if number % 5 == 0 && number % 3 == 0
+      return 'fizz buzz'
+    elsif number % 3 == 0
+      return 'fizz'
+    elsif number % 5 == 0
+      return 'buzz'    
+    end
+    return number
   end
 end
 
@@ -35,6 +42,46 @@ RSpec.describe FizzBuzz do
       fizz_buzz = FizzBuzz.new
       result = fizz_buzz.output(1)
       expect(result).to eq(1)
+    end
+    it 'should return 2 when given 2' do
+      fizz_buzz = FizzBuzz.new
+      result = fizz_buzz.output(2)
+      expect(result).to eq(2)
+    end
+    it 'should return \'fizz\' when given 3' do
+      fizz_buzz = FizzBuzz.new
+      result = fizz_buzz.output(3)
+      expect(result).to eq('fizz')
+    end
+    it 'should return \'buzz\' when given 5' do
+      fizz_buzz = FizzBuzz.new
+      result = fizz_buzz.output(5)
+      expect(result).to eq('buzz')
+    end
+    it 'should return \'fizz\' when given 6' do
+      fizz_buzz = FizzBuzz.new
+      result = fizz_buzz.output(6)
+      expect(result).to eq('fizz')
+    end
+    it 'should return \'buzz\' when given 10' do
+      fizz_buzz = FizzBuzz.new
+      result = fizz_buzz.output(10)
+      expect(result).to eq('buzz')
+    end
+    it 'should return \'fizz buzz\' when given 15' do
+      fizz_buzz = FizzBuzz.new
+      result = fizz_buzz.output(15)
+      expect(result).to eq('fizz buzz')
+    end
+    it 'should return \'fizz\' when given 84' do
+      fizz_buzz = FizzBuzz.new
+      result = fizz_buzz.output(84)
+      expect(result).to eq('fizz')
+    end
+    it 'should return \'buzz\' when given 85' do
+      fizz_buzz = FizzBuzz.new
+      result = fizz_buzz.output(85)
+      expect(result).to eq('buzz')
     end
   end
 end
